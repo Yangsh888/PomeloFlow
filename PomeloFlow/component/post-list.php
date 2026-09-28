@@ -21,7 +21,7 @@ $archive = (isset($pfArchiveContext) && is_array($pfArchiveContext)) ? $pfArchiv
         $thumb      = pf_thumb($this, $opts);
         $excerpt    = pf_excerpt($this);
         $createdTs  = (int) $this->created;
-        $date       = date('Y-m-d', $createdTs);
+        $date       = (new \Typecho\Date($createdTs))->format('Y-m-d');
         $dateText   = pf_format_date($createdTs);
         $cardClass  = $thumb === '' ? 'pf-card pf-animate-up pf-card-no-thumb' : 'pf-card pf-animate-up';
         ?>

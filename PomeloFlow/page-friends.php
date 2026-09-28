@@ -29,7 +29,7 @@ $friendLinks    = pf_parse_friend_links($opts->friendLinks ?? '');
         <div class="pf-post-meta">
             <a href="<?php $this->author->permalink(); ?>" itemprop="author"><?php echo pf_esc_html($authorName); ?></a>
             <span class="pf-meta-sep" aria-hidden="true"></span>
-            <time itemprop="datePublished" datetime="<?php echo date('Y-m-d', (int) $this->created); ?>">
+            <time itemprop="datePublished" datetime="<?php $this->date('c'); ?>">
                 <?php echo pf_format_date((int) $this->created); ?>
             </time>
             <?php if ($this->user->hasLogin()): ?>

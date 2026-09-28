@@ -569,7 +569,8 @@ function _pf_adjacent_post(object $widget, string $dir): ?array
  */
 function pf_format_date(int $ts): string
 {
-    return date('Y', $ts) . ' 年 ' . ltrim(date('m', $ts), '0') . ' 月 ' . ltrim(date('d', $ts), '0') . ' 日';
+    $date = new \Typecho\Date($ts);
+    return $date->format('Y') . ' 年 ' . $date->format('n') . ' 月 ' . $date->format('j') . ' 日';
 }
 
 function pf_capture_output(callable $callback): string

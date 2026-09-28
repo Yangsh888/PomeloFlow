@@ -9,7 +9,7 @@ $safeSiteUrl = pf_frontend_url(pf_text($opts->siteUrl ?? ''), $opts);
 $siteTitle   = pf_text($opts->title ?? '');
 $recordNum   = trim(pf_text($opts->recordNum ?? ''));
 $feedUrl     = pf_safe_url(pf_text($opts->feedUrl ?? ''));
-$year        = date('Y');
+$year        = (new \Typecho\Date())->format('Y');
 
 $socialLinks        = pf_parse_social_links($opts->socialLinks ?? '');
 $friendGlobalEnable = pf_bool($opts->friendGlobalEnable ?? 'false');
